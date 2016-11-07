@@ -1,3 +1,3 @@
 #!/bin/bash
-export SUDO_ASKPASS='./files/askpass.sh'
+export SUDO_ASKPASS='./askpass.sh'
 sudo --askpass kill --signal SIGINT $(< connect.pid)
