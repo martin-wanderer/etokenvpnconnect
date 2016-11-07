@@ -1,1 +1,6 @@
 connect.log
+connect.pid
+address.conf
+certid.conf
+ca.pem
+
