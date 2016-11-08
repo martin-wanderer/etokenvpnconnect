@@ -1,16 +1,23 @@
 #!/bin/bash 
 export SUDO_ASKPASS='./askpass.sh'
 
-SERVER_ADDRESS=$(zenity --title="Input server address" --width=300 --entry --text="Server:" --entry-text=$(< address.conf))
+if [ -f address.conf ]
+then
+	ENTRY_TEXT=$(< address.conf)
+fi
+SERVER_ADDRESS=$(zenity --title="Input server address" --width=300 --entry --text="Server:" --entry-text="$ENTRY_TEXT")
 if [ -n "$SERVER_ADDRESS" ] 
 then
   echo $SERVER_ADDRESS > address.conf
 fi
 
-CERT_ID=$(< certid.conf)
+if [ -f certid.conf ]
+then
+	CERT_ID=$(< certid.conf)
+fi
 if [ -z "$CERT_ID" ]
-then 
-  CERT_ID=$(getcertid.sh)
+then
+  CERT_ID=$(./getcertid.sh)
   echo $CERT_ID > certid.conf
 fi
 
