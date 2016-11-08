@@ -1,4 +1,11 @@
-# for each certificate extract its text if it is a CA cert
-#TODO: echo each cert to corresponding file
-# find rigth CA cert by client cert issuer
-p11tool --list-all 'pkcs11:model=eToken' | grep -P pkcs11.+id.* -o | while read -r line; do if p11tool --export "$line" | openssl x509 -text | grep --quiet "CA:TRUE"; then p11tool --export "$line"; fi done
+#!/bin/bash
+CERT_ID="$1"
+ISSUER=$(p11tool --export "$CERT_ID" | openssl x509 -text | grep -P 'Issuer:.*' )
+
+p11tool --list-all 'pkcs11:model=eToken' | grep -P pkcs11.+id.* -o |
+while read -r line; do
+	CERT_TEXT=$(p11tool --export "$line" | openssl x509 -text)
+	if echo "$CERT_TEXT" | grep --quiet "CA:TRUE" && echo "$CERT_TEXT" | grep --quiet "$ISSUER";
+	then p11tool --export "$line";
+	fi
+done

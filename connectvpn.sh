@@ -14,9 +14,15 @@ then
   echo $CERT_ID > certid.conf
 fi
 
+CA_FILE='ca.pem'
+if [ ! -f "$CA_FILE" ]
+then
+ ./getcafile.sh "$CERT_ID" > "$CA_FILE"
+fi
+
 PIN_VALUE=$(zenity --password --title="Input eToken PIN") 
 
-#TODO: generate ca.pem, install gnu-tls, openconnect and driver
+#TODO: install gnu-tls, openconnect and driver
 
 sudo --askpass openconnect --certificate=$CERT_ID';pin-value='$PIN_VALUE --cafile=ca.pem --background --pid-file=connect.pid --verbose $SERVER_ADDRESS > connect.log 
 
