@@ -1,2 +1,2 @@
 #!/bin/bash
-./killvpnbypid.sh
+sudo ./killvpnbypid.sh
