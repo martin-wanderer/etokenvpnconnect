@@ -2,7 +2,9 @@
 
 CERT_ID=$(./getcertid.sh)
 
-#TODO: logical, easy for use script structure
+#TODO: generate remmina conf. logical, easy for use script structure
 
-openconnect --certificate="$CERT_ID" --cafile=$(./getcafile.sh "$CERT_ID") --script-tun --script "ocproxy -D 11080 -L 3389:10.133.1.112:3389" $(./getserveraddress.sh)
+ocproxy_script=$(./getproxyscript.sh)
+remmina --connect="~/.remmina/etokenvpnproxy.remmina" &
+openconnect --certificate="$CERT_ID" --cafile=$(./getcafile.sh "$CERT_ID") --script-tun --script "$ocproxy_script" $(./getserveraddress.sh)
 

@@ -1,11 +1,13 @@
 #!/bin/bash
 if [ -f address.conf ]
 then
-	ENTRY_TEXT=$(< address.conf)
+	SERVER_ADDRESS=$(< address.conf)
 fi
-SERVER_ADDRESS=$(zenity --title="Input server address" --width=300 --entry --text="Server:" --entry-text="$ENTRY_TEXT")
-if [ -n "$SERVER_ADDRESS" ] 
+
+if [ -z "$SERVER_ADDRESS" ] 
 then
-  echo $SERVER_ADDRESS > address.conf
-  echo $SERVER_ADDRESS
+	read -p 'Input vpn-server address: ' SERVER_ADDRESS
+	echo $SERVER_ADDRESS > address.conf
 fi
+
+echo $SERVER_ADDRESS
