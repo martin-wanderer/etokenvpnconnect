@@ -1,8 +1,11 @@
 #!/bin/bash
 export SUDO_ASKPASS='files/askpass.sh'
-if [ "$1" == 'no-root' ]
+pid=$(< connect.pid)
+if [ $(ps -p "$pid" -o user=) == "$USER" ]
 then
-	kill --signal SIGINT $(< connect.pid)
+	kill -s SIGINT pid "$pid"
+	kill -s SIGKILL pid "$pid"
 else
-	sudo --askpass kill --signal SIGINT $(< connect.pid)
+	sudo --askpass kill --signal SIGINT pid "$pid"
+	sudo --askpass kill --signal SIGINT pid "$pid"
 fi
