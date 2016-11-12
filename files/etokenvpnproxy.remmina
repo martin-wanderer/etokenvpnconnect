@@ -4,7 +4,6 @@ ssh_auth=0
 quality=0
 sharesmartcard=0
 resolution=1920x1080
-name=etokenvpnproxy
 ssh_loopback=0
 shareprinter=0
 window_maximize=1
