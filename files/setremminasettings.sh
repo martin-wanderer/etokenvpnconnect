@@ -8,6 +8,12 @@ if [ ! -f "$dest_file" ]
 then
 	cp "$source_file" "$dest_file" # --no-clobber
 	echo "name=etokenvpnproxy" >> "$dest_file"
+
+	read -p 'Input RDP username: ' username
+	echo "username=$username" >> "$dest_file"
+
+	read -p 'Input RDP user domain: ' domain
+	echo "domain=$domain" >> "$dest_file"
 fi
 
 remote_host="$1"
@@ -16,13 +22,14 @@ if [ ! -f "$dest_file" ]
 then
 	cp "$source_file" "$dest_file" # --no-clobber
 	echo "name=etokenvpn" >> "$dest_file"
+
+	echo "server=$remote_host" >> "$dest_file"
+
+	read -p 'Input RDP username: ' username
+	echo "username=$username" >> "$dest_file"
+
+	read -p 'Input RDP user domain: ' domain
+	echo "domain=$domain" >> "$dest_file"
 fi
 
-echo "server=$remote_host" >> "$dest_file"
-
-read -p 'Input RDP username: ' username
-echo "username=$username" >> "$dest_file"
-
-read -p 'Input RDP user domain: ' domain
-echo "domain=$domain" >> "$dest_file"
 
