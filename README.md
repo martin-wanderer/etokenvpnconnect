@@ -2,13 +2,11 @@
 Scripts for easy connecting via openconnect with eToken authentication
 
 Install with install.sh
-gnu-tls for eToken
-openssl for text representation of certificate
-openconnect... for vpn connection
 
-Start with connectvpn.sh
+To conntect as NON-ROOT user start with proxyvpnconnect.sh
+In this mode only requests to localhost:3389 transferred to specified remote machine.
+To start vpn in background and run Remmina start with silentproxyrdpconnect.sh
+
+To connect to VPN without proxy ( root needed ) use vpnconnect.sh and/or rdpconnect.sh
+
 Disconnect by disconnect.sh
-
-Use visudo on killvpnbypid.sh to enable disconnect without root password
-
-! token piv value remains in connect.log file. Just disable logging or use from console
