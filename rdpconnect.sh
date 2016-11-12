@@ -1,4 +1,4 @@
 #!/bin/bash
-./connectvpn.sh
+./vpnconnect.sh
 
 remmina --connect="$HOME/.remmina/conn1.remmina"
