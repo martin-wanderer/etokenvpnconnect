@@ -1,5 +1,5 @@
 #!/bin/bash
-CA_FILE='ca.pem'
+CA_FILE='config/ca.pem'
 if [ ! -f "$CA_FILE" ]
 then
 	CERT_ID="$1"

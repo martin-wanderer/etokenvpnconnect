@@ -1,5 +1,5 @@
 # for each certificate echo URL if its purpose is Client Authentication
-CERT_ID_FILE="certid.conf"
+CERT_ID_FILE="config/certid.conf"
 
 if [ ! -f "$CERT_ID_FILE" ] || [ -z $(< "$CERT_ID_FILE") ]
 then
