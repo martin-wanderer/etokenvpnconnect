@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#TODO: read all values via zenity if 'visual'.
 filename="etokenvpnproxy.remmina"
 source_file="files/$filename"
 remmina_home="$HOME/.remmina/"

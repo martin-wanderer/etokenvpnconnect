@@ -1,4 +1,5 @@
 #!/bin/bash
+#TODO: read all values via zenity if 'visual'. 
 ocproxy_conf_file="config/ocproxy.conf"
 if [ -f "$ocproxy_conf_file" ]
 then
