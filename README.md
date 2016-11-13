@@ -10,4 +10,5 @@ To start vpn in background and run Remmina use silentproxyrdpconnect.sh
 To connect to VPN without proxy ( root needed ) use vpnconnect.sh and/or rdpconnect.sh
 Changing network routes is the only reason why root is needed. Enable non-root access to vpnc-script with visudo and openconnect will work without sudo.
 
-Disconnect by disconnect.sh
+If openconnect started in background mode disconnect by disconnect.sh
+Otherwise just strike Ctrl-C in corresponding terminal window.
