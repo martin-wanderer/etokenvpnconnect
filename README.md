@@ -1,7 +1,7 @@
 # etokenvpnconnect
 Scripts for easy connecting via openconnect with eToken authentication
 
-Install with install.sh
+Install with install.sh with root
 
 To conntect as NON-ROOT user start with proxyvpnconnect.sh.
 In this mode only requests to localhost:3389 are transferred to a specified remote machine.
